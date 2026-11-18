@@ -36,6 +36,13 @@ app.get("/user", async(req, res) =>{
     res.json(result)
 })
 
+app.post("/add-jobs", async(req, res) =>{
+  const newJobs = req.body
+  const result = await jobs.insertOne(newJobs)
+  res.send(result)
+  console.log(result)
+})
+
 app.listen(port, ()=>{
     console.log(`Example app listening on port ${port}`);
 })
